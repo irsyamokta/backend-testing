@@ -1,9 +1,9 @@
-import connection from "../config/connection.js";
+import pool from "../config/connection.js";
     
 const getUsers = async (req, res) => {
     try{
         const query = "SELECT * FROM users";
-        const [rows] = await connection.query(query);
+        const [rows] = await (await pool).query(query);
         if(rows.length === 0){
             return res.status(404).json({message: "No users found"});
         }
