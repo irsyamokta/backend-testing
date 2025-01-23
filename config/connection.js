@@ -1,7 +1,7 @@
-import mysql from "mysql"
-import util from "util"
-import dotenv from "dotenv"
-dotenv.config()
+import mysql from "mysql";
+import util from "util";
+import dotenv from "dotenv";
+dotenv.config();
 
 const connection = mysql.createConnection({
     host: process.env.DB_HOST,
@@ -10,7 +10,7 @@ const connection = mysql.createConnection({
     database: process.env.DB_NAME
 })
 
-connection.query = util.promisify(connection.query)
+connection.query = util.promisify(connection.query);
 
-export default connection
+export default connection;
 
